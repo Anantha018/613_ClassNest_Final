@@ -1,5 +1,9 @@
 from django import forms
-from .models import Course, Discussion, Inbox
+from .models import *
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 
 class CourseForm(forms.ModelForm):
     class Meta:
@@ -17,10 +21,6 @@ class InboxForm(forms.ModelForm):
         model = Inbox
         fields = ['to', 'subject', 'message']
 
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from .models import Course
 
 class CourseForm(forms.ModelForm):
     class Meta:
