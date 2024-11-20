@@ -1,26 +1,8 @@
 from django import forms
-from .models import *
-from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
-
-class CourseForm(forms.ModelForm):
-    class Meta:
-        model = Course
-        fields = ['title', 'description', 'thumbnail']
-
-
-class DiscussionForm(forms.ModelForm):
-    class Meta:
-        model = Discussion
-        fields = ['course', 'title', 'content']
-
-class InboxForm(forms.ModelForm):
-    class Meta:
-        model = Inbox
-        fields = ['to', 'subject', 'message']
-
+from django import forms
+from .models import Course, Discussion, Inbox
 
 class CourseForm(forms.ModelForm):
     class Meta:
@@ -38,3 +20,13 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'user_type']
+
+class DiscussionForm(forms.ModelForm):
+    class Meta:
+        model = Discussion
+        fields = ['course', 'title', 'content']
+
+class InboxForm(forms.ModelForm):
+    class Meta:
+        model = Inbox
+        fields = ['to', 'subject', 'message']
